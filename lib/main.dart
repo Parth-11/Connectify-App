@@ -1,3 +1,4 @@
+import 'package:connectify/pages/landing_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class _ConnectifyState extends State<Connectify> {
           title: Text('Connectify'),
           leading: IconButton(onPressed: () {}, icon: Icon(Icons.abc)),
         ),
-        body: Container(),
+        body: LandingPage(),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: curIndex,
           onTap: (value) {

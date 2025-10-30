@@ -11,13 +11,21 @@ class LandingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Connectify'),
+            Text('Connectify', style: TextStyle(fontSize: 40)),
             TextButton(
-              onPressed: () {},
-              style: ButtonStyle(),
+              onPressed: () {
+                Navigator.pushNamed(context, '');
+              },
+              style: TextButton.styleFrom(fixedSize: Size(300, 10)),
               child: Text('Login'),
             ),
-            TextButton(onPressed: () {}, child: Text('Sign Up')),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '');
+              },
+              style: TextButton.styleFrom(fixedSize: Size(300, 10)),
+              child: Text('Sign Up'),
+            ),
           ],
         ),
       ),

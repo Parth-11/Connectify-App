@@ -5,29 +5,27 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text('Connectify', style: TextStyle(fontSize: 40)),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '');
-              },
-              style: TextButton.styleFrom(fixedSize: Size(300, 10)),
-              child: Text('Login'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '');
-              },
-              style: TextButton.styleFrom(fixedSize: Size(300, 10)),
-              child: Text('Sign Up'),
-            ),
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text('Connectify', style: TextStyle(fontSize: 40)),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '');
+            },
+            style: TextButton.styleFrom(fixedSize: Size(300, 10)),
+            child: Text('Login'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '');
+            },
+            style: TextButton.styleFrom(fixedSize: Size(300, 10)),
+            child: Text('Sign Up'),
+          ),
+        ],
       ),
     );
   }

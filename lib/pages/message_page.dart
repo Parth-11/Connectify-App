@@ -1,3 +1,4 @@
+import 'package:connectify/widgets/chat_card.dart';
 import 'package:flutter/material.dart';
 
 class MessagePage extends StatefulWidget {
@@ -72,33 +73,7 @@ class _MessagePageState extends State<MessagePage> {
                 GestureDetector(child: Icon(Icons.more_horiz, size: 24)),
               ],
             ),
-            SizedBox(
-              height: 100,
-              child: ListView(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CircleAvatar(radius: 32),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Sophia Williams",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text("Lorem Ipsum"),
-                        ],
-                      ),
-                      Text('Time'),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            SizedBox(height: 100, child: ListView(children: [ChatCard()])),
           ],
         ),
       ),

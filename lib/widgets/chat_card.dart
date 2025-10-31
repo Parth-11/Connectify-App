@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ChatCard extends StatelessWidget {
-  const ChatCard({super.key});
+  ChatCard({
+    super.key,
+    required this.name,
+    required this.lastSent,
+    required this.latestMessage,
+  });
+  String name;
+  String latestMessage;
+  DateTime lastSent;
 
   @override
   Widget build(BuildContext context) {

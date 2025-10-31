@@ -26,54 +26,18 @@ class _MessagePageState extends State<MessagePage> {
                 GestureDetector(child: Icon(Icons.search, size: 32)),
               ],
             ),
-            Row(
-              children: [
-                Text(
-                  'Story',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
-                ),
-                Spacer(),
-                GestureDetector(child: Icon(Icons.more_horiz, size: 24)),
-              ],
-            ),
             SizedBox(
               height: 100,
               child: ListView(
-                scrollDirection: Axis.horizontal,
                 children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      height: 84,
-                      width: 84,
-                      decoration: ShapeDecoration(
-                        color: Colors.grey.shade300,
-                        shape: CircleBorder(
-                          side: BorderSide(
-                            color: Colors.grey.shade500,
-                            width: 2,
-                            style: BorderStyle.solid,
-                          ),
-                        ),
-                      ),
-                      child: Icon(Icons.add),
-                    ),
+                  ChatCard(
+                    name: "",
+                    lastSent: DateTime.now(),
+                    latestMessage: "",
                   ),
-                  CircleAvatar(radius: 42),
                 ],
               ),
             ),
-            Row(
-              children: [
-                Text(
-                  'Chat',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
-                ),
-                Spacer(),
-                GestureDetector(child: Icon(Icons.more_horiz, size: 24)),
-              ],
-            ),
-            SizedBox(height: 100, child: ListView(children: [ChatCard()])),
           ],
         ),
       ),

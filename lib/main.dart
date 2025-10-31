@@ -19,7 +19,9 @@ class _ConnectifyState extends State<Connectify> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Connectify'),

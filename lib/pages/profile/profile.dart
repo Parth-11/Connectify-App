@@ -41,12 +41,6 @@ class ProfilePage extends StatelessWidget {
           ),
           SizedBox(height: 12),
           Card(
-            margin: EdgeInsets.zero,
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            elevation: 4,
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Column(
@@ -55,14 +49,14 @@ class ProfilePage extends StatelessWidget {
                     icon: Icons.notifications_off_outlined,
                     text: "Pause Notifications",
                     onTap: () {},
-                    color: Color(0xff242529),
+                    color: Theme.of(context).colorScheme.primary,
                     iconColor: Colors.white,
                   ),
                   SettingsTile(
                     icon: Icons.data_usage_rounded,
                     text: "Set Status",
                     onTap: () {},
-                    color: Color(0xffd7d0fe),
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                 ],
               ),
@@ -75,12 +69,6 @@ class ProfilePage extends StatelessWidget {
           ),
           SizedBox(height: 12),
           Card(
-            margin: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            color: Colors.white,
-            elevation: 4,
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Column(
@@ -89,26 +77,26 @@ class ProfilePage extends StatelessWidget {
                     icon: Icons.hub_outlined,
                     text: "Manage Hubs",
                     onTap: () {},
-                    color: Color(0xffffecba),
+                    color: Theme.of(context).colorScheme.tertiary,
                   ),
                   SettingsTile(
                     icon: Icons.shape_line_outlined,
                     text: "Preferences",
                     onTap: () {},
-                    color: Color(0xff242529),
+                    color: Theme.of(context).colorScheme.primary,
                     iconColor: Colors.white,
                   ),
                   SettingsTile(
                     icon: Icons.question_answer_outlined,
                     text: "FAQs",
                     onTap: () {},
-                    color: Color(0xffd7d0fe),
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   SettingsTile(
                     icon: Icons.message_outlined,
                     text: "Contact Us",
                     onTap: () {},
-                    color: Color(0xffffecba),
+                    color: Theme.of(context).colorScheme.tertiary,
                   ),
                 ],
               ),

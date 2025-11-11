@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 
 class ActivityCard extends StatelessWidget {
   final String content;
+  final String timeText;
   final int imageCount;
 
   const ActivityCard({
     super.key,
     required this.content,
     required this.imageCount,
+    this.timeText = "Today, 8:49 PM",
   });
 
   Widget _generateButton(void Function() onPressed, IconData icon) => InkWell(
     onTap: onPressed,
+    borderRadius: BorderRadius.circular(50),
     child: Container(
       decoration: BoxDecoration(
         color: Colors.grey.shade300,
@@ -32,7 +35,6 @@ class ActivityCard extends StatelessWidget {
         child: Column(
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   flex: 1,
@@ -44,23 +46,38 @@ class ActivityCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   flex: 5,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
                     children: [
-                      Text(
-                        "John Doe",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "John Doe",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              height: 0,
+                            ),
+                          ),
+                          Text(
+                            "@doe.john",
+                            style: TextStyle(
+                              color: Colors.grey.shade500,
+                              fontWeight: FontWeight.w500,
+                              height: 0,
+                            ),
+                          ),
+                        ],
                       ),
+                      const Spacer(),
                       Text(
-                        "Today 8:59 AM",
+                        timeText,
                         style: TextStyle(
                           color: Colors.grey.shade500,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
+                      const SizedBox(width: 16),
                     ],
                   ),
                 ),

@@ -1,6 +1,5 @@
 import 'package:connectify/config/themes/controller.dart';
 import 'package:connectify/pages/feed/feed.dart';
-import 'package:connectify/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,28 +13,13 @@ void main() {
   runApp(Connectify());
 }
 
-class Connectify extends StatefulWidget {
+class Connectify extends StatelessWidget {
   const Connectify({super.key});
 
   @override
-  State<Connectify> createState() => _ConnectifyState();
-}
-
-class _ConnectifyState extends State<Connectify> {
-  List<Widget Function()> pages = [() => FeedPage(), () => ProfilePage()];
-  late final ThemeController controller;
-
-  @override
-  void initState() {
-    super.initState();
-
-    controller = Get.find<ThemeController>();
-  }
-
-  int curIndex = 1;
-
-  @override
   Widget build(BuildContext context) {
+    final ThemeController controller = Get.find<ThemeController>();
+
     return Obx(
       () => MaterialApp(
         title: 'Flutter Demo',
@@ -44,34 +28,7 @@ class _ConnectifyState extends State<Connectify> {
         themeMode: controller.isDarkMode.value
             ? ThemeMode.dark
             : ThemeMode.light,
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('Connectify'),
-            actions: [
-              Obx(
-                () => SizedBox(
-                  width: 60,
-                  child: Switch(
-                    value: controller.isDarkMode.value,
-                    onChanged: (val) => controller.toggleTheme(),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          body: SafeArea(child: pages[curIndex]()),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: curIndex,
-            onTap: (value) => setState(() => curIndex = value),
-            items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
-              ),
-            ],
-          ),
-        ),
+        home: FeedPage(),
       ),
     );
   }

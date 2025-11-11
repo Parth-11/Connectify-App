@@ -1,5 +1,5 @@
 import 'package:connectify/config/themes/controller.dart';
-import 'package:connectify/pages/landing_page.dart';
+import 'package:connectify/pages/feed/feed.dart';
 import 'package:connectify/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +22,7 @@ class Connectify extends StatefulWidget {
 }
 
 class _ConnectifyState extends State<Connectify> {
-  List<Widget Function()> pages = [() => LandingPage(), () => ProfilePage()];
+  List<Widget Function()> pages = [() => FeedPage(), () => ProfilePage()];
   late final ThemeController controller;
 
   @override
@@ -54,11 +54,6 @@ class _ConnectifyState extends State<Connectify> {
                   child: Switch(
                     value: controller.isDarkMode.value,
                     onChanged: (val) => controller.toggleTheme(),
-                    // secondary: Icon(
-                    //   controller.isDarkMode.value
-                    //       ? Icons.dark_mode
-                    //       : Icons.light_mode_outlined,
-                    // ),
                   ),
                 ),
               ),

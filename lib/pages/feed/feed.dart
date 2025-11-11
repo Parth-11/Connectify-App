@@ -15,6 +15,7 @@ class FeedPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
         toolbarHeight: 48,
         leadingWidth: 64,
         actionsPadding: EdgeInsets.only(right: 16),
@@ -91,9 +92,9 @@ class FeedPage extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 ActivityCard(

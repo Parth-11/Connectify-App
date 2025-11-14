@@ -1,4 +1,5 @@
 import 'package:connectify/pages/feed/widgets/activity_image_grid.dart';
+import 'package:connectify/widgets/rounded_icon_button.dart';
 import 'package:flutter/material.dart';
 
 class ActivityCard extends StatelessWidget {
@@ -12,19 +13,6 @@ class ActivityCard extends StatelessWidget {
     required this.imageCount,
     this.timeText = "Today, 8:49 PM",
   });
-
-  Widget _generateButton(void Function() onPressed, IconData icon) => InkWell(
-    onTap: onPressed,
-    borderRadius: BorderRadius.circular(50),
-    child: Container(
-      decoration: BoxDecoration(
-        color: Colors.grey.shade300,
-        borderRadius: BorderRadius.circular(50),
-      ),
-      padding: EdgeInsets.all(8),
-      child: Icon(icon, size: 16),
-    ),
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +107,11 @@ class ActivityCard extends StatelessWidget {
                   Expanded(
                     child: Row(
                       children: [
-                        _generateButton(() {}, Icons.favorite_border_rounded),
+                        RoundedIconButton(
+                          onTap: () {},
+                          icon: Icons.favorite_border_rounded,
+                          iconSize: 16,
+                        ),
                         const SizedBox(width: 8),
                         Text(
                           "2.7K",
@@ -135,9 +127,10 @@ class ActivityCard extends StatelessWidget {
                   Expanded(
                     child: Row(
                       children: [
-                        _generateButton(
-                          () {},
-                          Icons.chat_bubble_outline_rounded,
+                        RoundedIconButton(
+                          onTap: () {},
+                          icon: Icons.chat_bubble_outline_rounded,
+                          iconSize: 16,
                         ),
                         const SizedBox(width: 8),
                         Text(
@@ -151,10 +144,20 @@ class ActivityCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  Expanded(child: _generateButton(() {}, Icons.add)),
+                  Expanded(
+                    child: RoundedIconButton(
+                      onTap: () {},
+                      icon: Icons.add,
+                      iconSize: 16,
+                    ),
+                  ),
                   const SizedBox(width: 12),
                   Expanded(
-                    child: _generateButton(() {}, Icons.ios_share_outlined),
+                    child: RoundedIconButton(
+                      onTap: () {},
+                      icon: Icons.ios_share_outlined,
+                      iconSize: 16,
+                    ),
                   ),
                 ],
               ),

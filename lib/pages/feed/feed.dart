@@ -45,9 +45,9 @@ class _FeedPageState extends State<FeedPage>
 
   void _toggleDrawer() {
     if (controller.isCompleted) {
-      controller.reverse();
+      controller.reverse().whenComplete(() => setState(() {}));
     } else {
-      controller.forward();
+      controller.forward().whenComplete(() => setState(() {}));
     }
 
     setState(() => drawerOpen = !drawerOpen);
@@ -56,8 +56,12 @@ class _FeedPageState extends State<FeedPage>
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final ThemeData theme = Theme.of(context);
 
     return Scaffold(
+      backgroundColor: !drawerOpen && !controller.isAnimating
+          ? null
+          : theme.colorScheme.primary,
       body: SafeArea(
         child: Stack(
           children: [
@@ -79,7 +83,7 @@ class _FeedPageState extends State<FeedPage>
                         Matrix4.translationValues(slide, 0, 0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: theme.colorScheme.surface,
+                        color: theme.scaffoldBackgroundColor,
                         borderRadius: BorderRadius.circular(
                           25 * (controller.value > 0 ? 1 : 0),
                         ),
@@ -114,14 +118,23 @@ class _FeedPageMain extends StatelessWidget {
           IntrinsicHeight(
             child: Row(
               children: [
-                RoundedIconButton(icon: Icons.menu_rounded, onTap: callback),
+                RoundedIconButton(
+                  icon: Icons.menu_rounded,
+                  onTap: callback,
+                  color: theme.colorScheme.surface,
+                ),
                 const Spacer(),
                 RoundedIconButton(
                   icon: Icons.notifications_none_rounded,
                   onTap: () {},
+                  color: theme.colorScheme.surface,
                 ),
                 const SizedBox(width: 8),
-                RoundedIconButton(icon: Icons.settings_rounded, onTap: () {}),
+                RoundedIconButton(
+                  icon: Icons.settings_rounded,
+                  onTap: () {},
+                  color: theme.colorScheme.surface,
+                ),
                 VerticalDivider(
                   width: 24,
                   color: Colors.grey.shade400,

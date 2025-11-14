@@ -24,7 +24,7 @@ class RoundedIconButton extends StatelessWidget {
         child: Ink(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color: color ?? Colors.grey.shade300,
+            color: color ?? Color(0xffeef0f3),
           ),
           padding: EdgeInsets.all(8),
           child: Icon(icon, size: iconSize),

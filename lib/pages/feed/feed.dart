@@ -134,16 +134,19 @@ class _FeedPageMain extends StatelessWidget {
                     );
                   },
                   borderRadius: BorderRadius.circular(50),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: theme.colorScheme.primaryContainer,
-                    ),
-                    height: 48,
-                    width: 48,
-                    child: Icon(
-                      Icons.account_circle_outlined,
-                      color: theme.colorScheme.onPrimaryContainer,
+                  child: Hero(
+                    tag: "pfp",
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: theme.colorScheme.primaryContainer,
+                      ),
+                      height: 48,
+                      width: 48,
+                      child: Icon(
+                        Icons.account_circle,
+                        color: theme.colorScheme.onPrimaryContainer,
+                      ),
                     ),
                   ),
                 ),

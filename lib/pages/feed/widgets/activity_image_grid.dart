@@ -104,17 +104,15 @@ class _ImageTile extends StatelessWidget {
             ),
           );
         },
-        child: Hero(
-          tag: tag,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: Image.network(
-              url,
-              fit: BoxFit.cover,
-              errorBuilder: (_, _, _) => Container(
-                color: Colors.grey[300],
-                child: const Icon(Icons.image),
-              ),
+        // TODO: Add a Hero Widget to make transition seemless
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(6),
+          child: Image.network(
+            url,
+            fit: BoxFit.cover,
+            errorBuilder: (_, _, _) => Container(
+              color: Colors.grey[300],
+              child: const Icon(Icons.image),
             ),
           ),
         ),

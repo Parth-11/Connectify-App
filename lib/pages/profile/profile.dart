@@ -7,6 +7,8 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -17,9 +19,20 @@ class ProfilePage extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CircleAvatar(
-                    radius: 30,
-                    child: Icon(Icons.account_circle_rounded, size: 30),
+                  Hero(
+                    tag: "pfp",
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: theme.colorScheme.primaryContainer,
+                      ),
+                      height: 60,
+                      width: 60,
+                      child: Icon(
+                        Icons.account_circle,
+                        color: theme.colorScheme.onPrimaryContainer,
+                      ),
+                    ),
                   ),
                   SizedBox(width: 16),
                   Column(

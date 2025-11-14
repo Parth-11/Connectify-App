@@ -12,19 +12,17 @@ class PhotoView extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(backgroundColor: Colors.black, elevation: 0),
       body: Center(
-        child: Hero(
-          tag: tag,
-          child: InteractiveViewer(
-            child: Image.network(
-              imageUrl,
-              fit: BoxFit.contain,
-              loadingBuilder: (context, child, progress) {
-                if (progress == null) return child;
-                return const CircularProgressIndicator(color: Colors.white);
-              },
-              errorBuilder: (context, error, stackTrace) =>
-                  const Icon(Icons.broken_image, color: Colors.white, size: 48),
-            ),
+        // TODO: Add a Hero Widget to make transition seemless
+        child: InteractiveViewer(
+          child: Image.network(
+            imageUrl,
+            fit: BoxFit.contain,
+            loadingBuilder: (context, child, progress) {
+              if (progress == null) return child;
+              return const CircularProgressIndicator(color: Colors.white);
+            },
+            errorBuilder: (context, error, stackTrace) =>
+                const Icon(Icons.broken_image, color: Colors.white, size: 48),
           ),
         ),
       ),

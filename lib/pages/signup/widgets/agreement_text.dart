@@ -8,9 +8,8 @@ class AgreementText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
+    return Text.rich(
+      TextSpan(
         style: TextStyle(color: Colors.grey.shade500),
         children: [
           const TextSpan(text: "I agree to the "),
@@ -24,6 +23,7 @@ class AgreementText extends StatelessWidget {
           ),
         ],
       ),
+      textAlign: TextAlign.center,
     );
   }
 }

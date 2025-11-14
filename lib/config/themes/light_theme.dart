@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const Color backgroundColor = Color(0xffeef0f3);
 const Color surfaceColor = Colors.white;
@@ -8,6 +9,10 @@ const Color tertiary = Color(0xffffecba);
 
 final ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
+  textTheme: GoogleFonts.poppinsTextTheme(),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(textStyle: GoogleFonts.poppins()),
+  ),
   colorScheme: ColorScheme.light(
     primary: primary,
     secondary: secondary,

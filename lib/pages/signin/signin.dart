@@ -1,6 +1,7 @@
 import 'package:connectify/pages/feed/feed.dart';
 import 'package:connectify/widgets/password_field.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'widgets/signup_text.dart';
 
@@ -104,9 +105,9 @@ class _SignInPageState extends State<SignInPage> {
                             theme.colorScheme.tertiary,
                           ),
                           textStyle: WidgetStateProperty.all(
-                            TextStyle(
+                            GoogleFonts.poppins(
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           padding: WidgetStateProperty.all(EdgeInsets.all(16)),

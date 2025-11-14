@@ -81,9 +81,23 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 8, 0, 32),
+                        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                         child: PasswordField(),
                       ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            "Forgot Password?",
+                            style: const TextStyle(
+                              color: Colors.blueAccent,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 24),
                       TextButton(
                         style: ButtonStyle(
                           backgroundColor: WidgetStateProperty.all(

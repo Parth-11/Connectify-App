@@ -38,4 +38,13 @@ final ThemeData lightTheme = ThemeData(
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: backgroundColor,
   ),
+  inputDecorationTheme: InputDecorationThemeData(
+    contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+    border: OutlineInputBorder(
+      borderSide: BorderSide.none,
+      borderRadius: BorderRadius.circular(50),
+    ),
+    filled: true,
+    fillColor: backgroundColor,
+  ),
 );

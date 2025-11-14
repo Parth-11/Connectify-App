@@ -97,8 +97,7 @@ class _ImageTile extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: (_) => PhotoView(imageUrl: url, tag: tag),
             ),

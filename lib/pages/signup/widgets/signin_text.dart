@@ -7,9 +7,8 @@ class SignInText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
+    return Text.rich(
+      TextSpan(
         style: TextStyle(color: Colors.grey.shade500),
         children: [
           const TextSpan(text: "Already have an account? "),
@@ -26,6 +25,7 @@ class SignInText extends StatelessWidget {
           ),
         ],
       ),
+      textAlign: TextAlign.center,
     );
   }
 }

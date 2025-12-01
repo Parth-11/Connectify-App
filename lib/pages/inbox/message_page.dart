@@ -39,7 +39,21 @@ class _MessagePageState extends State<MessagePage> {
                   ),
                 ),
                 Text('Inbox'),
-                Row(children: [ChatTypeButton()]),
+                Row(
+                  children: [
+                    ChatTypeButton(
+                      chatType: 'Private',
+                      activeChats: 16,
+                      callback: () {},
+                    ),
+                    const SizedBox(width: 16),
+                    ChatTypeButton(
+                      chatType: 'Group',
+                      activeChats: 2,
+                      callback: () {},
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

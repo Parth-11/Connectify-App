@@ -54,6 +54,20 @@ class _MessagePageState extends State<MessagePage> {
                     ),
                   ],
                 ),
+                const SizedBox(height: 16),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        ChatCard(
+                          name: 'Billy Green',
+                          lastSent: TimeOfDay.now(),
+                          latestMessage: 'Sorry about that',
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

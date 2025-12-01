@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ChatCard extends StatelessWidget {
-  ChatCard({
+  const ChatCard({
     super.key,
     required this.name,
     required this.lastSent,
     required this.latestMessage,
   });
-  String name;
-  String latestMessage;
-  DateTime lastSent;
+  final String name;
+  final String latestMessage;
+  final TimeOfDay lastSent;
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +33,18 @@ class ChatCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Sophia Williams",
+                      name,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Text("Lorem Ipsum", style: TextStyle(fontSize: 16)),
+                    Text(latestMessage, style: TextStyle(fontSize: 16)),
                   ],
                 ),
               ),
               Spacer(),
-              Text('Time'),
+              Text(lastSent.toString()),
             ],
           ),
         ),

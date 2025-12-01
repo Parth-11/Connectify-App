@@ -1,5 +1,4 @@
 import 'package:connectify/config/themes/controller.dart';
-import 'package:connectify/pages/inbox/message_page.dart';
 import 'package:connectify/pages/signin/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

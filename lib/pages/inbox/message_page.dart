@@ -20,6 +20,7 @@ class _MessagePageState extends State<MessagePage> {
           child: Padding(
             padding: EdgeInsetsGeometry.all(8.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IntrinsicHeight(
                   child: Row(
@@ -59,6 +60,11 @@ class _MessagePageState extends State<MessagePage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
+                        ChatCard(
+                          name: 'Billy Green',
+                          lastSent: TimeOfDay.now(),
+                          latestMessage: 'Sorry about that',
+                        ),
                         ChatCard(
                           name: 'Billy Green',
                           lastSent: TimeOfDay.now(),

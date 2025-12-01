@@ -1,6 +1,6 @@
 import 'package:connectify/config/themes/controller.dart';
 import 'package:connectify/pages/inbox/message_page.dart';
-import 'package:connectify/pages/signup/signup.dart';
+import 'package:connectify/pages/signin/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +29,7 @@ class Connectify extends StatelessWidget {
         themeMode: controller.isDarkMode.value
             ? ThemeMode.dark
             : ThemeMode.light,
-        home: MessagePage(),
+        home: SignInPage(),
       ),
     );
   }

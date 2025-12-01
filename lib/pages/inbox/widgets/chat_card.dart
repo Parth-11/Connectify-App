@@ -6,10 +6,12 @@ class ChatCard extends StatelessWidget {
     required this.name,
     required this.lastSent,
     required this.latestMessage,
+    this.circleImage,
   });
   final String name;
   final String latestMessage;
   final TimeOfDay lastSent;
+  final NetworkImage? circleImage;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class ChatCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CircleAvatar(radius: 38),
+              CircleAvatar(radius: 32, backgroundImage: NetworkImage('')),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(

@@ -1,43 +1,34 @@
-// import 'package:connectify/pages/landing_page.dart';
-import 'package:connectify/pages/message_page.dart';
+import 'package:connectify/config/themes/controller.dart';
+import 'package:connectify/pages/signup/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'config/themes/dark_theme.dart';
+import 'config/themes/light_theme.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Get.put(ThemeController());
+
   runApp(Connectify());
 }
 
-class Connectify extends StatefulWidget {
+class Connectify extends StatelessWidget {
   const Connectify({super.key});
 
   @override
-  State<Connectify> createState() => _ConnectifyState();
-}
-
-class _ConnectifyState extends State<Connectify> {
-  int curIndex = 0;
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Connectify'),
-          leading: IconButton(onPressed: () {}, icon: Icon(Icons.abc)),
-        ),
-        body: MessagePage(),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: curIndex,
-          onTap: (value) {
-            setState(() {
-              curIndex = value;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-          ],
-        ),
+    final ThemeController controller = Get.find<ThemeController>();
+
+    return Obx(
+      () => MaterialApp(
+        title: 'Flutter Demo',
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        themeMode: controller.isDarkMode.value
+            ? ThemeMode.dark
+            : ThemeMode.light,
+        home: SignUpPage(),
       ),
     );
   }

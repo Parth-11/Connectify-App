@@ -1,0 +1,18 @@
+import 'package:connectify/widgets/chat_card.dart';
+import 'package:flutter/material.dart';
+
+class MessagePage extends StatefulWidget {
+  const MessagePage({super.key});
+
+  @override
+  State<MessagePage> createState() => _MessagePageState();
+}
+
+class _MessagePageState extends State<MessagePage> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(padding: const EdgeInsets.all(8.0), child: Column()),
+    );
+  }
+}

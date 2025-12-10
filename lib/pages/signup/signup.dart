@@ -1,9 +1,9 @@
-import 'package:connectify/pages/feed/feed.dart';
 import 'package:connectify/pages/signup/widgets/agreement_text.dart';
 import 'package:connectify/widgets/password_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../main.dart';
 import 'widgets/signin_text.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -162,7 +162,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         onPressed: () {
                           Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (_) => FeedPage()),
+                            MaterialPageRoute(builder: (_) => MainPage()),
                           );
                         },
                         child: Text("Create Account"),

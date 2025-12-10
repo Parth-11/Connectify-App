@@ -1,8 +1,8 @@
-import 'package:connectify/pages/feed/feed.dart';
 import 'package:connectify/widgets/password_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../main.dart';
 import 'widgets/signup_text.dart';
 
 class SignInPage extends StatefulWidget {
@@ -114,7 +114,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         onPressed: () {
                           Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (_) => FeedPage()),
+                            MaterialPageRoute(builder: (_) => MainPage()),
                           );
                         },
                         child: Text("Sign In"),

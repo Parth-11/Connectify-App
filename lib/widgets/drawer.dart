@@ -1,4 +1,4 @@
-import 'package:connectify/pages/feed/widgets/drawer_tile.dart';
+import 'package:connectify/widgets/drawer_tile.dart';
 import 'package:flutter/material.dart';
 
 class ConnectifyDrawer extends StatelessWidget {

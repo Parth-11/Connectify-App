@@ -135,6 +135,95 @@ class _ProfilePageState extends State<ProfilePage>
                 ),
               ],
             ),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 8,
+                ),
+                child: IntrinsicHeight(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Column(
+                            children: [
+                              Text(
+                                "47",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: theme.colorScheme.onTertiary,
+                                ),
+                              ),
+                              Text(
+                                "Followers",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                  color: theme.colorScheme.onTertiary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      VerticalDivider(),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Column(
+                            children: [
+                              Text(
+                                "23",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: theme.colorScheme.onTertiary,
+                                ),
+                              ),
+                              Text(
+                                "Following",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                  color: theme.colorScheme.onTertiary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      VerticalDivider(),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Column(
+                            children: [
+                              Text(
+                                "4",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: theme.colorScheme.onTertiary,
+                                ),
+                              ),
+                              Text(
+                                "Channels",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                  color: theme.colorScheme.onTertiary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

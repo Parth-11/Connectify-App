@@ -33,9 +33,10 @@ class DrawerTile extends StatelessWidget {
                 ? null
                 : LinearGradient(
                     colors: [
-                      theme.colorScheme.surface.withAlpha(160),
+                      theme.colorScheme.surface.withAlpha(200),
                       theme.colorScheme.primaryContainer,
                     ],
+                    stops: [0, 0.2],
                   ),
           ),
           width: MediaQuery.of(context).size.width / 2 + 20,

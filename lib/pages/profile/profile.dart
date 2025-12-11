@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '/pages/settings/settings.dart';
-import '/widgets/rounded_icon_button.dart';
+import 'widgets/header.dart';
+import 'widgets/info_section.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -12,7 +12,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
-  final headerKey = GlobalKey();
+  final GlobalKey headerKey = GlobalKey();
   late AnimationController _controller;
   late Animation<double> animation;
 
@@ -81,58 +81,7 @@ class _ProfilePageState extends State<ProfilePage>
                       ),
                     ),
                   ),
-                Column(
-                  key: headerKey,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
-                      child: Row(
-                        children: [
-                          RoundedIconButton(
-                            icon: Icons.arrow_back_rounded,
-                            onTap: Navigator.of(context).pop,
-                            color: theme.colorScheme.surface,
-                          ),
-                          const Spacer(),
-                          RoundedIconButton(
-                            icon: Icons.settings_rounded,
-                            onTap: () => Navigator.of(context).push(
-                              MaterialPageRoute(builder: (_) => SettingsPage()),
-                            ),
-                            color: theme.colorScheme.surface,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Hero(
-                      tag: "pfp",
-                      child: Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: theme.colorScheme.onTertiary,
-                        ),
-                        height: 80,
-                        width: 80,
-                        child: Icon(
-                          Icons.account_circle,
-                          color: theme.colorScheme.onPrimaryContainer,
-                          size: 36,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "John Doe",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: theme.colorScheme.onTertiary,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                  ],
-                ),
+                ProfileHeader(headerKey: headerKey),
               ],
             ),
             Card(
@@ -146,77 +95,27 @@ class _ProfilePageState extends State<ProfilePage>
                   child: Row(
                     children: [
                       Expanded(
-                        child: GestureDetector(
+                        child: InfoSection(
+                          value: "47",
+                          text: "Followers",
                           onTap: () {},
-                          child: Column(
-                            children: [
-                              Text(
-                                "47",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: theme.colorScheme.onTertiary,
-                                ),
-                              ),
-                              Text(
-                                "Followers",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  color: theme.colorScheme.onTertiary,
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ),
                       VerticalDivider(),
                       Expanded(
-                        child: GestureDetector(
+                        child: InfoSection(
+                          value: "23",
+                          text: "Following",
                           onTap: () {},
-                          child: Column(
-                            children: [
-                              Text(
-                                "23",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: theme.colorScheme.onTertiary,
-                                ),
-                              ),
-                              Text(
-                                "Following",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  color: theme.colorScheme.onTertiary,
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ),
+
                       VerticalDivider(),
                       Expanded(
-                        child: GestureDetector(
+                        child: InfoSection(
+                          value: "4",
+                          text: "Channels",
                           onTap: () {},
-                          child: Column(
-                            children: [
-                              Text(
-                                "4",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: theme.colorScheme.onTertiary,
-                                ),
-                              ),
-                              Text(
-                                "Channels",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  color: theme.colorScheme.onTertiary,
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ),
                     ],

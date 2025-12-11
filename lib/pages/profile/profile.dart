@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'widgets/header.dart';
-import 'widgets/info_section.dart';
+import 'widgets/stats_section.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -45,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage>
       setState(() {
         columnHeight = renderBox.size.height;
 
-        animation = Tween<double>(begin: 0, end: columnHeight).animate(
+        animation = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(parent: _controller, curve: Curves.easeOutBack),
         );
 
@@ -71,12 +71,12 @@ class _ProfilePageState extends State<ProfilePage>
                   AnimatedBuilder(
                     animation: _controller,
                     builder: (_, _) => Container(
-                      height: animation.value,
+                      height: animation.value * columnHeight,
                       decoration: BoxDecoration(
                         color: theme.colorScheme.tertiary,
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(32),
-                          bottomRight: Radius.circular(32),
+                          bottomLeft: Radius.circular(25),
+                          bottomRight: Radius.circular(25),
                         ),
                       ),
                     ),
@@ -84,45 +84,52 @@ class _ProfilePageState extends State<ProfilePage>
                 ProfileHeader(headerKey: headerKey),
               ],
             ),
-            Card(
-              margin: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 16,
-                  horizontal: 8,
-                ),
-                child: IntrinsicHeight(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: InfoSection(
-                          value: "47",
-                          text: "Followers",
-                          onTap: () {},
-                        ),
-                      ),
-                      VerticalDivider(),
-                      Expanded(
-                        child: InfoSection(
-                          value: "23",
-                          text: "Following",
-                          onTap: () {},
-                        ),
-                      ),
+            if (columnHeight > 0)
+              Card(
+                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 16,
+                    horizontal: 8,
+                  ),
+                  child: IntrinsicHeight(
+                    child: AnimatedBuilder(
+                      animation: animation,
+                      builder: (_, _) => Opacity(
+                        opacity: animation.value.clamp(0, 1),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: StatsSection(
+                                value: "47",
+                                text: "Followers",
+                                onTap: () {},
+                              ),
+                            ),
+                            VerticalDivider(),
+                            Expanded(
+                              child: StatsSection(
+                                value: "23",
+                                text: "Following",
+                                onTap: () {},
+                              ),
+                            ),
 
-                      VerticalDivider(),
-                      Expanded(
-                        child: InfoSection(
-                          value: "4",
-                          text: "Channels",
-                          onTap: () {},
+                            VerticalDivider(),
+                            Expanded(
+                              child: StatsSection(
+                                value: "4",
+                                text: "Channels",
+                                onTap: () {},
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
           ],
         ),
       ),

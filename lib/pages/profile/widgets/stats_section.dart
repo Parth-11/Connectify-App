@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class InfoSection extends StatelessWidget {
+class StatsSection extends StatelessWidget {
   final String value;
   final String text;
   final void Function() onTap;
 
-  const InfoSection({
+  const StatsSection({
     super.key,
     required this.value,
     required this.text,

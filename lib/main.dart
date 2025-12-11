@@ -18,7 +18,7 @@ class Connectify extends StatelessWidget {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeController.themeMode,
       builder: (context, mode, _) => MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Connectify',
         theme: lightTheme,
         darkTheme: darkTheme,
         themeMode: mode,

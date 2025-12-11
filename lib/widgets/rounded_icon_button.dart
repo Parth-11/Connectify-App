@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/controllers/theme.dart';
+
 class RoundedIconButton extends StatelessWidget {
   final Color? color;
   final IconData icon;
@@ -26,7 +28,14 @@ class RoundedIconButton extends StatelessWidget {
         child: Ink(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color: color ?? Color(0xffeef0f3),
+            color:
+                color ??
+                Color.fromARGB(
+                  themeController.isDarkMode ? 60 : 255,
+                  238,
+                  240,
+                  243,
+                ),
           ),
           padding: EdgeInsets.all(8),
           child: Icon(icon, size: iconSize, color: iconColor),

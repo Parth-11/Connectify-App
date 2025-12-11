@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/settings_tile.dart';
+import '/pages/settings/settings.dart';
+import '/widgets/rounded_icon_button.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -10,13 +11,30 @@ class ProfilePage extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(
+                children: [
+                  RoundedIconButton(
+                    icon: Icons.arrow_back_rounded,
+                    onTap: Navigator.of(context).pop,
+                    color: theme.colorScheme.surface,
+                  ),
+                  const Spacer(),
+                  RoundedIconButton(
+                    icon: Icons.settings_rounded,
+                    onTap: () => Navigator.of(
+                      context,
+                    ).push(MaterialPageRoute(builder: (_) => SettingsPage())),
+                    color: theme.colorScheme.surface,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 32),
               Row(
                 children: [
                   Hero(
@@ -54,92 +72,6 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
               Divider(height: 48),
-              Text(
-                "General",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-              ),
-              SizedBox(height: 12),
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Column(
-                    children: [
-                      SettingsTile(
-                        icon: Icons.notifications_off_outlined,
-                        text: "Pause Notifications",
-                        onTap: () {},
-                        color: theme.colorScheme.primary,
-                        iconColor: Colors.white,
-                      ),
-                      SettingsTile(
-                        icon: Icons.data_usage_rounded,
-                        text: "Set Status",
-                        onTap: () {},
-                        color: theme.colorScheme.secondary,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 32),
-              Text(
-                "Others",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-              ),
-              SizedBox(height: 12),
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Column(
-                    children: [
-                      SettingsTile(
-                        icon: Icons.hub_outlined,
-                        text: "Manage Hubs",
-                        onTap: () {},
-                        color: theme.colorScheme.tertiary,
-                      ),
-                      SettingsTile(
-                        icon: Icons.shape_line_outlined,
-                        text: "Preferences",
-                        onTap: () {},
-                        color: theme.colorScheme.primary,
-                        iconColor: Colors.white,
-                      ),
-                      SettingsTile(
-                        icon: Icons.question_answer_outlined,
-                        text: "FAQs",
-                        onTap: () {},
-                        color: theme.colorScheme.secondary,
-                      ),
-                      SettingsTile(
-                        icon: Icons.message_outlined,
-                        text: "Contact Us",
-                        onTap: () {},
-                        color: theme.colorScheme.tertiary,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Spacer(),
-              Center(
-                child: TextButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(
-                      theme.colorScheme.errorContainer,
-                    ),
-                    padding: WidgetStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 48),
-                    ),
-                  ),
-                  child: Text(
-                    "Logout",
-                    style: TextStyle(color: theme.colorScheme.error),
-                  ),
-                ),
-              ),
-              Spacer(),
             ],
           ),
         ),

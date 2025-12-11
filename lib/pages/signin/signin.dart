@@ -31,7 +31,7 @@ class _SignInPageState extends State<SignInPage> {
                   "Connectify",
                   style: TextStyle(
                     fontSize: 36,
-                    color: theme.colorScheme.primary,
+                    color: theme.colorScheme.onSurface,
                     fontWeight: FontWeight.w800,
                   ),
                 ),

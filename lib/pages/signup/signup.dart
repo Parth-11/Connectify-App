@@ -32,7 +32,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   "Connectify",
                   style: TextStyle(
                     fontSize: 36,
-                    color: theme.colorScheme.primary,
+                    color: theme.colorScheme.onSurface,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
@@ -136,7 +136,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             fillColor: WidgetStateProperty.all(
                               theme.scaffoldBackgroundColor,
                             ),
-                            checkColor: theme.colorScheme.primary,
+                            checkColor: theme.colorScheme.onSurface,
                           ),
                           AgreementText(
                             onTap: () {

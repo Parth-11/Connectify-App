@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const Color backgroundColor = Color(0xffeef0f3);
+const Color backgroundColor = Color(0xFFF7F5F0);
 const Color surfaceColor = Colors.white;
 const Color primary = Color(0xff242529);
 const Color secondary = Color(0xffd7d0fe);
-const Color tertiary = Color(0xffffecba);
+const Color tertiary = Color(0xFFFFE2A8);
 
 final ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
@@ -15,20 +15,21 @@ final ThemeData lightTheme = ThemeData(
   ),
   colorScheme: ColorScheme.light(
     primary: primary,
+    onPrimary: Colors.white,
     secondary: secondary,
     tertiary: tertiary,
+    onTertiary: Color(0xFF3E3E3E),
     surface: surfaceColor,
+    onSurface: Colors.black87,
     error: Colors.red.shade700,
     errorContainer: Colors.red.withAlpha(80),
-    onPrimary: Colors.white,
-    onSurface: Colors.black87,
   ),
   scaffoldBackgroundColor: backgroundColor,
   cardTheme: CardThemeData(
     color: surfaceColor,
     elevation: 0,
     margin: EdgeInsets.zero,
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
   ),
   appBarTheme: const AppBarTheme(
     backgroundColor: backgroundColor,

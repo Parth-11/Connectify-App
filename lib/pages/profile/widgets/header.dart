@@ -19,13 +19,13 @@ class ProfileHeader extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               RoundedIconButton(
                 icon: Icons.arrow_back_rounded,
                 onTap: Navigator.of(context).pop,
                 color: theme.colorScheme.surface,
               ),
-              const Spacer(),
               RoundedIconButton(
                 icon: Icons.settings_rounded,
                 onTap: () => Navigator.of(

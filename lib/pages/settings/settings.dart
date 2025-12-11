@@ -25,6 +25,14 @@ class SettingsPage extends StatelessWidget {
                     onTap: Navigator.of(context).pop,
                     color: theme.colorScheme.surface,
                   ),
+                  Text(
+                    "Settings",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: theme.colorScheme.onSurface,
+                    ),
+                  ),
                   RoundedIconButton(
                     icon: Icons.power_settings_new_rounded,
                     onTap: () {},

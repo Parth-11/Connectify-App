@@ -1,3 +1,4 @@
+import 'package:connectify/controllers/drawer.dart';
 import 'package:flutter/material.dart';
 
 class DrawerTile extends StatelessWidget {
@@ -21,7 +22,10 @@ class DrawerTile extends StatelessWidget {
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
-        onTap: onTap,
+        onTap: () {
+          onTap();
+          drawerController.toggle();
+        },
         child: Container(
           padding: EdgeInsets.all(16),
           decoration: BoxDecoration(

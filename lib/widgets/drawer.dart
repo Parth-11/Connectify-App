@@ -1,10 +1,9 @@
+import 'package:connectify/controllers/drawer.dart';
 import 'package:connectify/widgets/drawer_tile.dart';
 import 'package:flutter/material.dart';
 
 class ConnectifyDrawer extends StatelessWidget {
-  final void Function() callback;
-
-  const ConnectifyDrawer({super.key, required this.callback});
+  const ConnectifyDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +23,11 @@ class ConnectifyDrawer extends StatelessWidget {
               icon: Icons.home,
               title: "Feed",
               isSelected: true,
-              onTap: callback,
+              onTap: () {},
             ),
-            DrawerTile(
-              icon: Icons.hub_outlined,
-              title: "Hubs",
-              onTap: callback,
-            ),
-            DrawerTile(icon: Icons.home, title: "Feed", onTap: callback),
-            DrawerTile(icon: Icons.home, title: "Feed", onTap: callback),
+            DrawerTile(icon: Icons.hub_outlined, title: "Hubs", onTap: () {}),
+            DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),
+            DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),
             const Spacer(),
             Divider(
               indent: 16,
@@ -53,7 +48,7 @@ class ConnectifyDrawer extends StatelessWidget {
                     type: MaterialType.transparency,
                     child: InkWell(
                       customBorder: CircleBorder(),
-                      onTap: callback,
+                      onTap: drawerController.toggle,
                       child: CircleAvatar(
                         radius: 32,
                         backgroundColor: theme.colorScheme.onPrimaryContainer

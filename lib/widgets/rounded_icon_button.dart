@@ -4,6 +4,7 @@ class RoundedIconButton extends StatelessWidget {
   final Color? color;
   final IconData icon;
   final double iconSize;
+  final Color? iconColor;
   final void Function() onTap;
 
   const RoundedIconButton({
@@ -12,6 +13,7 @@ class RoundedIconButton extends StatelessWidget {
     required this.onTap,
     this.color,
     this.iconSize = 20,
+    this.iconColor,
   });
 
   @override
@@ -27,7 +29,7 @@ class RoundedIconButton extends StatelessWidget {
             color: color ?? Color(0xffeef0f3),
           ),
           padding: EdgeInsets.all(8),
-          child: Icon(icon, size: iconSize),
+          child: Icon(icon, size: iconSize, color: iconColor),
         ),
       ),
     );

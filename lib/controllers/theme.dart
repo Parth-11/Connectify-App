@@ -11,7 +11,7 @@ class ThemeController {
     _loadTheme();
   }
 
-  bool get _isDarkMode => themeMode.value == ThemeMode.dark;
+  bool get isDarkMode => themeMode.value == ThemeMode.dark;
 
   void _loadTheme() async {
     final SharedPreferences box = await SharedPreferences.getInstance();
@@ -23,11 +23,11 @@ class ThemeController {
 
   void _saveTheme() async {
     final SharedPreferences box = await SharedPreferences.getInstance();
-    await box.setBool(_key, _isDarkMode);
+    await box.setBool(_key, isDarkMode);
   }
 
   void toggleTheme() {
-    themeMode.value = _isDarkMode ? ThemeMode.light : ThemeMode.dark;
+    themeMode.value = isDarkMode ? ThemeMode.light : ThemeMode.dark;
     _saveTheme();
   }
 }

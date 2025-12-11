@@ -1,3 +1,4 @@
+import 'package:connectify/controllers/drawer.dart';
 import 'package:connectify/pages/profile/profile.dart';
 import 'package:connectify/widgets/rounded_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -5,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'widgets/activity_card.dart';
 
 class FeedPage extends StatelessWidget {
-  final void Function() callback;
-
-  const FeedPage({super.key, required this.callback});
+  const FeedPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class FeedPage extends StatelessWidget {
               children: [
                 RoundedIconButton(
                   icon: Icons.menu_rounded,
-                  onTap: callback,
+                  onTap: drawerController.toggle,
                   color: theme.colorScheme.surface,
                 ),
                 const Spacer(),

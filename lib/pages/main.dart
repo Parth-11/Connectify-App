@@ -13,7 +13,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
   late final AnimationController controller;
-  late final Animation<double> scaleAnimation;
+  late final Animation<double> opacityAnimation;
   late final Animation<double> slideAnimation;
 
   @override
@@ -21,17 +21,20 @@ class _MainPageState extends State<MainPage>
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 200),
+      duration: Duration(milliseconds: 400),
     );
-    scaleAnimation = Tween<double>(
-      begin: 1.0,
-      end: 0.9,
-    ).animate(CurvedAnimation(parent: controller, curve: Curves.easeInOut));
+
+    Curve curve = Curves.fastEaseInToSlowEaseOut;
+
+    opacityAnimation = Tween<double>(
+      begin: 1,
+      end: 0.04,
+    ).animate(CurvedAnimation(parent: controller, curve: curve));
 
     slideAnimation = Tween<double>(
-      begin: 0.0,
-      end: 0.5,
-    ).animate(CurvedAnimation(parent: controller, curve: Curves.easeInOut));
+      begin: -0.6,
+      end: 0.06,
+    ).animate(CurvedAnimation(parent: controller, curve: curve));
 
     drawerController.isOpen.addListener(() {
       if (drawerController.isOpen.value) {
@@ -50,51 +53,40 @@ class _MainPageState extends State<MainPage>
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final ThemeData theme = Theme.of(context);
+    final Size size = MediaQuery.of(context).size;
 
     return ValueListenableBuilder<bool>(
       valueListenable: drawerController.isOpen,
       builder: (context, open, _) => Scaffold(
-        backgroundColor: !open && !controller.isAnimating
-            ? null
-            : theme.colorScheme.primary,
         body: SafeArea(
           child: Stack(
             children: [
-              ConnectifyDrawer(),
-              GestureDetector(
-                onTap: open ? drawerController.toggle : null,
-                child: AnimatedBuilder(
-                  animation: controller,
-                  builder: (context, child) {
-                    final ThemeData theme = Theme.of(context);
-                    final slide = slideAnimation.value * width;
-                    final scale = scaleAnimation.value;
-
-                    return Transform(
-                      alignment: Alignment.center,
-                      transform:
-                          Matrix4.identity() *
-                          Matrix4.diagonal3Values(scale, scale, 1) *
-                          Matrix4.translationValues(slide, 0, 0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: theme.scaffoldBackgroundColor,
-                          borderRadius: BorderRadius.circular(
-                            25 * (controller.value > 0 ? 1 : 0),
-                          ),
-                        ),
-                        child: child,
-                      ),
-                    );
-                  },
-                  child: ValueListenableBuilder<String>(
-                    valueListenable: drawerController.selected,
-                    builder: (context, _, _) =>
-                        drawerController.buildSelected(),
+              AnimatedBuilder(
+                animation: opacityAnimation,
+                builder: (context, child) =>
+                    Opacity(opacity: opacityAnimation.value, child: child),
+                child: GestureDetector(
+                  onTap: open ? drawerController.toggle : null,
+                  child: AbsorbPointer(
+                    absorbing: open, 
+                    child: ValueListenableBuilder<String>(
+                      valueListenable: drawerController.selected,
+                      builder: (context, _, _) => drawerController.buildSelected(),
+                    ),
                   ),
                 ),
+              ),
+              AnimatedBuilder(
+                animation: controller,
+                builder: (context, child) {
+                  return Positioned(
+                    left: size.width * slideAnimation.value,
+                    top: size.height * 0.015,
+                    bottom: size.height * 0.015,
+                    child: child!,
+                  );
+                },
+                child: ConnectifyDrawer(),
               ),
             ],
           ),

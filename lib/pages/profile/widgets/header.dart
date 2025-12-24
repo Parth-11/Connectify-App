@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 import '/pages/settings/settings.dart';
 import '/widgets/rounded_icon_button.dart';
+import 'interaction_button.dart';
 
 class ProfileHeader extends StatelessWidget {
   final GlobalKey headerKey;
 
   const ProfileHeader({super.key, required this.headerKey});
+
+  final bool isUser = false;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,33 @@ class ProfileHeader extends StatelessWidget {
             color: theme.colorScheme.onTertiary,
           ),
         ),
-        SizedBox(height: 20),
+        isUser
+            ? const SizedBox(height: 20)
+            : Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 48,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: InteractionButton(
+                        icon: Icons.add_rounded,
+                        text: "Follow",
+                        onTap: () {},
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: InteractionButton(
+                        icon: Icons.chat_bubble_outline_rounded,
+                        text: "Message",
+                        onTap: () {},
+                      ),
+                    ),
+                  ],
+                ),
+              ),
       ],
     );
   }

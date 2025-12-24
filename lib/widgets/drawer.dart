@@ -28,12 +28,7 @@ class ConnectifyDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DrawerTile(
-            icon: Icons.home,
-            title: "Feed",
-            isSelected: true,
-            onTap: () {},
-          ),
+          DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),
           DrawerTile(icon: Icons.hub_outlined, title: "Hubs", onTap: () {}),
           DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),
           DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),

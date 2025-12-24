@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class DrawerTile extends StatelessWidget {
   final IconData icon;
   final String title;
-  final bool isSelected;
   final void Function() onTap;
 
   const DrawerTile({
@@ -12,12 +11,12 @@ class DrawerTile extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.onTap,
-    this.isSelected = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final bool isSelected = drawerController.selected.value == title;
 
     return Material(
       type: MaterialType.transparency,

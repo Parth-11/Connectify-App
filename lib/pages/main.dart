@@ -2,7 +2,6 @@ import 'package:connectify/controllers/drawer.dart';
 import 'package:flutter/material.dart';
 
 import '/widgets/drawer.dart';
-import 'feed/feed.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -90,7 +89,11 @@ class _MainPageState extends State<MainPage>
                       ),
                     );
                   },
-                  child: FeedPage(),
+                  child: ValueListenableBuilder<String>(
+                    valueListenable: drawerController.selected,
+                    builder: (context, _, _) =>
+                        drawerController.buildSelected(),
+                  ),
                 ),
               ),
             ],

@@ -19,15 +19,13 @@ class ConnectifyDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: size.height * 0.05 - 8),
-            DrawerTile(
-              icon: Icons.home,
-              title: "Feed",
-              isSelected: true,
-              onTap: () {},
+            ...drawerController.tiles.entries.map(
+              (e) => DrawerTile(
+                icon: e.value[0],
+                title: e.key,
+                onTap: () => drawerController.select(e.key),
+              ),
             ),
-            DrawerTile(icon: Icons.hub_outlined, title: "Hubs", onTap: () {}),
-            DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),
-            DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),
             const Spacer(),
             Divider(
               indent: 16,

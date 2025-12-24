@@ -28,10 +28,13 @@ class ConnectifyDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),
-          DrawerTile(icon: Icons.hub_outlined, title: "Hubs", onTap: () {}),
-          DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),
-          DrawerTile(icon: Icons.home, title: "Feed", onTap: () {}),
+          ...drawerController.tiles.entries.map(
+            (e) => DrawerTile(
+              icon: e.value[0],
+              title: e.key,
+              onTap: () => drawerController.select(e.key),
+            ),
+          ),
           const Spacer(),
           Divider(
             indent: 16,

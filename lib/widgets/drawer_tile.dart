@@ -19,52 +19,45 @@ class DrawerTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        onTap: () {
-          onTap();
-          drawerController.toggle();
-        },
-        child: Container(
-          padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            gradient: !isSelected
-                ? null
-                : LinearGradient(
-                    colors: [
-                      theme.colorScheme.surface.withAlpha(200),
-                      theme.colorScheme.primaryContainer,
-                    ],
-                    stops: [0, 0.2],
-                  ),
-          ),
-          width: MediaQuery.of(context).size.width / 2 + 20,
-          child: Row(
-            children: [
-              Icon(
-                icon,
-                color: theme.colorScheme.onPrimaryContainer,
-                size: 32,
-                shadows: [
-                  BoxShadow(
-                    offset: Offset(1, 1),
-                    blurRadius: 4,
-                    spreadRadius: 4,
-                  ),
-                ],
-              ),
-              const Spacer(),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 20,
-                  color: theme.colorScheme.onPrimaryContainer,
-                  fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(25),
+          onTap: () {
+            onTap();
+            drawerController.toggle();
+          },
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: isSelected ? theme.colorScheme.primary : null,
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                  color: isSelected
+                      ? theme.colorScheme.onPrimary
+                      : theme.colorScheme.onSurface,
+                  size: 24,
                 ),
-              ),
-              const Spacer(flex: 2),
-            ],
+                const SizedBox(width: 8),
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: isSelected
+                        ? theme.colorScheme.onPrimary
+                        : theme.colorScheme.onSurface,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

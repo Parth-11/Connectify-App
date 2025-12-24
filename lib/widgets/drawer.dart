@@ -12,7 +12,6 @@ class ConnectifyDrawer extends StatelessWidget {
 
     return Container(
       width: size.width / 2 + 32,
-      height: size.height * 0.85,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,

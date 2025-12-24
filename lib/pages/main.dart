@@ -2,7 +2,6 @@ import 'package:connectify/controllers/drawer.dart';
 import 'package:flutter/material.dart';
 
 import '/widgets/drawer.dart';
-import 'feed/feed.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -68,7 +67,13 @@ class _MainPageState extends State<MainPage>
                     Opacity(opacity: opacityAnimation.value, child: child),
                 child: GestureDetector(
                   onTap: open ? drawerController.toggle : null,
-                  child: AbsorbPointer(absorbing: open, child: FeedPage()),
+                  child: AbsorbPointer(
+                    absorbing: open, 
+                    child: ValueListenableBuilder<String>(
+                      valueListenable: drawerController.selected,
+                      builder: (context, _, _) => drawerController.buildSelected(),
+                    ),
+                  ),
                 ),
               ),
               AnimatedBuilder(
